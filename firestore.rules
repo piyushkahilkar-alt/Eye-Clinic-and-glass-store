@@ -1,0 +1,38 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidString(str, maxLength) {
+      return str is string && str.size() > 0 && str.size() <= maxLength;
+    }
+
+    function isValidAge(age) {
+      return age is number && age >= 0 && age <= 150;
+    }
+
+    function isValidAppointment(data) {
+      return data.keys().hasAll(['name', 'mobileNumber', 'age', 'serviceRequired', 'preferredDate', 'createdAt'])
+        && data.keys().size() <= 8
+        && isValidString(data.name, 100)
+        && isValidString(data.mobileNumber, 20)
+        && isValidAge(data.age)
+        && isValidString(data.serviceRequired, 100)
+        && isValidString(data.preferredDate, 50)
+        && (data.status == null || isValidString(data.status, 20))
+        && data.createdAt == request.time;
+    }
+
+    // Appointment Collection: Anyone (even anonymous) can CREATE an appointment.
+    // Ensure all data types and required fields are correct.
+    // READ is restricted.
+    match /appointments/{appointmentId} {
+      allow create: if isValidAppointment(request.resource.data);
+      // No read or update permissions by default for public users
+    }
+  }
+}
