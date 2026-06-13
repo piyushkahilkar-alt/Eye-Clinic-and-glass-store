@@ -109,7 +109,8 @@ export default function Hero() {
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-4 md:mt-0">
-            <a href="tel:9822365747" className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-medium text-base md:text-lg flex items-center justify-center transition-all">
+            <a href="tel:9822365747" className="w-full sm:w-auto bg-primary hover:bg-primary-light shadow-xl shadow-primary/20 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg flex items-center justify-center gap-2 transition-transform transform hover:-translate-y-1">
+              <Phone className="w-5 h-5" />
               Call Now
             </a>
           </motion.div>
