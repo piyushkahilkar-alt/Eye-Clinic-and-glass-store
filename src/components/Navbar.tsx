@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Calendar } from 'lucide-react';
+import { Menu, X, Phone, Calendar, Eye } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Navbar() {
@@ -29,11 +29,11 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             {/* Added id to the branding link for potential scroll logic or targeting */}
-            <a href="#home" id="navbar-brand" className={`font-bold text-xl md:text-2xl flex items-center gap-2 ${isScrolled ? 'text-primary' : 'text-white'}`}>
-               <span className="bg-primary text-white p-1.5 rounded-lg text-sm">F</span>
+            <a href="#home" id="navbar-brand" className={`font-bold text-xl md:text-2xl flex items-center gap-3 ${isScrolled ? 'text-primary' : 'text-white'}`}>
+               <Eye className={`w-8 h-8 ${isScrolled ? 'text-primary' : 'text-white'}`} strokeWidth={1.5} />
                <div className="flex flex-col leading-none">
-                 <span className="text-lg">Fudke Eye Clinic</span>
-                 <span className={`text-xs font-medium mt-1 uppercase tracking-wider ${isScrolled ? 'text-accent' : 'text-accent/90'}`}>& Optical Store</span>
+                 <span className="text-lg tracking-tight">Fudke Eye Clinic</span>
+                 <span className={`text-[10px] font-medium mt-1 tracking-[0.2em] uppercase ${isScrolled ? 'text-accent' : 'text-white/70'}`}>& Optical Store</span>
                </div>
             </a>
           </div>

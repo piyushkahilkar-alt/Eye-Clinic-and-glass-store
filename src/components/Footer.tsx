@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, Eye } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -8,11 +8,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
           <div className="space-y-4">
-             <div className="font-bold text-2xl text-white flex items-center gap-2 mb-6">
-               <span className="bg-primary text-white p-1.5 rounded-lg text-sm">F</span>
+             <div className="font-bold text-2xl text-white flex items-center gap-3 mb-6">
+               <Eye className="w-8 h-8 text-white" strokeWidth={1.5} />
                <div className="flex flex-col leading-none">
-                 <span className="text-lg">Fudke Eye Clinic</span>
-                 <span className="text-xs text-accent font-medium mt-1 uppercase tracking-wider">& Optical Store</span>
+                 <span className="text-xl tracking-tight">Fudke Eye Clinic</span>
+                 <span className="text-[10px] text-gray-400 font-medium mt-1 tracking-[0.2em] uppercase">& Optical Store</span>
                </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400">

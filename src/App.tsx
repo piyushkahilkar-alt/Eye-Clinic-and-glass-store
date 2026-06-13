@@ -15,7 +15,6 @@ import FAQ from './components/FAQ';
 import BookAppointment from './components/BookAppointment';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import FloatingActions from './components/FloatingActions';
 
 export default function App() {
   return (
@@ -34,7 +33,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <FloatingActions />
     </div>
   );
 }

@@ -16,14 +16,14 @@ service cloud.firestore {
     }
 
     function isValidAppointment(data) {
-      return data.keys().hasAll(['name', 'mobileNumber', 'age', 'serviceRequired', 'preferredDate', 'createdAt'])
+      return data.keys().hasAll(['name', 'mobileNumber', 'age', 'serviceRequired', 'preferredDate', 'status', 'createdAt'])
         && data.keys().size() <= 8
         && isValidString(data.name, 100)
         && isValidString(data.mobileNumber, 20)
         && isValidAge(data.age)
         && isValidString(data.serviceRequired, 100)
         && isValidString(data.preferredDate, 50)
-        && (data.status == null || isValidString(data.status, 20))
+        && isValidString(data.status, 20)
         && data.createdAt == request.time;
     }
 

@@ -42,6 +42,20 @@ export default function BookAppointment() {
         createdAt: serverTimestamp()
       });
 
+      // Fetch for Google Apps Script Web App
+      try {
+        fetch('https://script.google.com/macros/s/AKfycbzztbhtHhpb_XooAbe70KQEfcd_zB2MDdE7VwBJvzW9Lu7YeAUqFlKD2juaiOTfDuhX/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(data)
+        }).catch(console.error);
+      } catch (e) {
+        console.error(e);
+      }
+
       // 2. Prepare WhatsApp booking message
       const text = `Hello Dr. Sunil Fudke Eye Clinic. I would like to book an appointment.%0A%0A*Name:* ${data.name}%0A*Age:* ${data.age}%0A*Service:* ${data.serviceRequired}%0A*Date:* ${data.preferredDate}`;
       const whatsappLink = `https://wa.me/919822365747?text=${text}`;

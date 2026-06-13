@@ -6,12 +6,12 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", alt: "Clinic Interior", className: "col-span-1 row-span-2 aspect-[3/4]" },
-    { src: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800", alt: "Testing Equipment", className: "col-span-1 row-span-1 aspect-square" },
-    { src: "https://images.unsplash.com/photo-1638202993806-3bc5525dc1d5?auto=format&fit=crop&q=80&w=800", alt: "Optical Store", className: "col-span-2 row-span-1 aspect-[2/1]" },
-    { src: "https://images.unsplash.com/photo-1571772996211-1f9730f78e06?auto=format&fit=crop&q=80&w=800", alt: "Patient Consultation", className: "col-span-1 row-span-1 aspect-square" },
-    { src: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800", alt: "Eyewear Collection", className: "col-span-1 row-span-1 aspect-[4/3]" },
-    { src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800", alt: "Waiting Area", className: "col-span-1 row-span-1 aspect-[4/3]" },
+    { src: "/assets/eye-test-1.jpg", alt: "Clinic Interior", className: "col-span-1 row-span-2 aspect-[3/4]" },
+    { src: "/assets/eye-test-2.webp", alt: "Testing Equipment", className: "col-span-1 row-span-1 aspect-square" },
+    { src: "/assets/eye-test-3.jpg", alt: "Optical Store", className: "col-span-2 row-span-1 aspect-[2/1]" },
+    { src: "/assets/eye-test-2.webp", alt: "Patient Consultation", className: "col-span-1 row-span-1 aspect-square" },
+    { src: "/assets/eye-test-3.jpg", alt: "Eyewear Collection", className: "col-span-1 row-span-1 aspect-[4/3]" },
+    { src: "/assets/eye-test-1.jpg", alt: "Waiting Area", className: "col-span-1 row-span-1 aspect-[4/3]" },
   ];
 
   return (
@@ -70,9 +70,6 @@ export default function Gallery() {
               src={selectedImage} 
               alt="Expanded view" 
               className="max-w-full max-h-[90vh] object-contain rounded-lg"
-              onError={(e) => {
-                 (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1579684385127?auto=format&fit=crop&q=80&w=1200`;
-              }}
             />
           </motion.div>
         )}

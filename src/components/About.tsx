@@ -22,11 +22,11 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden relative shadow-2xl">
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden relative shadow-2xl bg-gray-100">
               <img 
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" 
+                src="/assets/sunil-fudke.png" 
                 alt="Dr. Sunil Fudke" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div className="absolute bottom-8 left-8 text-white">

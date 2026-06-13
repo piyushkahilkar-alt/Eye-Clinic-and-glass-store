@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Glasses, Sun, Monitor, CircleUserRound } from 'lucide-react';
 
 export default function OpticalStore() {
   const categories = [
-    { name: "Designer Frames", img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&q=80&w=800", desc: "Premium international brands" },
-    { name: "Reading Glasses", img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&q=80&w=800", desc: "Comfortable daily wear" },
-    { name: "Computer Glasses", img: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=800", desc: "Anti-glare & blue light block" },
-    { name: "Sunglasses", img: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=800", desc: "UV protection aesthetics" },
+    { name: "Designer Frames", icon: CircleUserRound, desc: "Premium international brands tailored for you" },
+    { name: "Reading Glasses", icon: Glasses, desc: "Comfortable daily wear for clear near vision" },
+    { name: "Computer Glasses", icon: Monitor, desc: "Anti-glare & blue light blocking lenses" },
+    { name: "Sunglasses", icon: Sun, desc: "UV protection combining aesthetics and safety" },
   ];
 
   return (
@@ -38,19 +38,14 @@ export default function OpticalStore() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden aspect-[3/4] cursor-pointer"
+              className="group relative rounded-3xl overflow-hidden bg-bg-light border border-gray-100 p-8 cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
-              <img 
-                src={cat.img} 
-                alt={cat.name} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent transition-opacity duration-300"></div>
-              
-              <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="text-2xl font-bold text-white mb-2">{cat.name}</h3>
-                <p className="text-gray-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">{cat.desc}</p>
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                <cat.icon className="w-7 h-7" />
               </div>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{cat.name}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{cat.desc}</p>
             </motion.div>
           ))}
         </div>
