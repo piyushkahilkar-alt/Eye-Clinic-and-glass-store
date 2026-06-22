@@ -13,11 +13,12 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-24 bg-primary text-white overflow-hidden relative">
+    <section className="py-24 bg-primary dark:bg-gray-800/50 text-white overflow-hidden relative transition-colors duration-300">
+      <div className="absolute inset-0 bg-blue-900/20 dark:bg-transparent pointer-events-none mix-blend-multiply"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Why Choose Us?</h2>
-          <p className="text-lg text-primary-light text-blue-100">
+          <p className="text-lg text-blue-100 dark:text-gray-300">
             Committed to preserving the gift of sight with ethics, precision, and compassion.
           </p>
         </div>
@@ -30,13 +31,13 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-dark p-8 rounded-3xl hover:bg-white/10 transition-colors"
+              className="glass-dark dark:bg-gray-800/80 dark:border-gray-700 p-8 rounded-3xl hover:bg-white/10 dark:hover:bg-gray-700 transition-colors"
             >
-              <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-accent">
+              <div className="w-12 h-12 bg-white/10 dark:bg-gray-900 rounded-2xl flex items-center justify-center mb-6 text-accent dark:text-primary-light">
                 <item.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-              <p className="text-blue-100 leading-relaxed text-sm">{item.desc}</p>
+              <h3 className="text-xl font-bold mb-3 dark:text-white">{item.title}</h3>
+              <p className="text-blue-100 dark:text-gray-400 leading-relaxed text-sm">{item.desc}</p>
             </motion.div>
           ))}
         </div>

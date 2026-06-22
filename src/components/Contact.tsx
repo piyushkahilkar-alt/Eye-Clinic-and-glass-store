@@ -3,26 +3,26 @@ import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
            
            <div>
-             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-primary font-semibold text-sm mb-6 uppercase tracking-wider">
+             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 font-semibold text-sm mb-6 uppercase tracking-wider">
                Get In Touch
              </div>
-             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
+             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight">
                Visit Our Clinic
              </h2>
              
              <div className="space-y-8">
                <div className="flex gap-4">
-                 <div className="w-12 h-12 bg-bg-light rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+                 <div className="w-12 h-12 bg-bg-light dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 text-primary dark:text-primary-light">
                    <MapPin className="w-6 h-6" />
                  </div>
                  <div>
-                   <h4 className="font-bold text-gray-900 text-lg mb-1">Clinic Address</h4>
-                   <p className="text-gray-600 leading-relaxed">
+                   <h4 className="font-bold text-gray-900 dark:text-gray-100 text-lg mb-1">Clinic Address</h4>
+                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                      Dr. Sunil Fudke Eye Clinic & Optical Store<br/>
                      Nandanvan, Nagpur,<br/>
                      Maharashtra, India
@@ -31,22 +31,22 @@ export default function Contact() {
                </div>
 
                <div className="flex gap-4">
-                 <div className="w-12 h-12 bg-bg-light rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+                 <div className="w-12 h-12 bg-bg-light dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 text-primary dark:text-primary-light">
                    <Phone className="w-6 h-6" />
                  </div>
                  <div>
-                   <h4 className="font-bold text-gray-900 text-lg mb-1">Phone Number</h4>
-                   <a href="tel:9822365747" className="text-gray-600 hover:text-primary transition-colors">+91 9822365747</a>
+                   <h4 className="font-bold text-gray-900 dark:text-gray-100 text-lg mb-1">Phone Number</h4>
+                   <a href="tel:9822365747" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors">+91 9822365747</a>
                  </div>
                </div>
 
                <div className="flex gap-4">
-                 <div className="w-12 h-12 bg-bg-light rounded-full flex items-center justify-center flex-shrink-0 text-primary">
+                 <div className="w-12 h-12 bg-bg-light dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 text-primary dark:text-primary-light">
                    <Clock className="w-6 h-6" />
                  </div>
                  <div>
-                   <h4 className="font-bold text-gray-900 text-lg mb-1">Working Hours</h4>
-                   <p className="text-gray-600">Mon - Sat: 10:00 AM - 9:00 PM<br/>Sun: Closed / By Appointment</p>
+                   <h4 className="font-bold text-gray-900 dark:text-gray-100 text-lg mb-1">Working Hours</h4>
+                   <p className="text-gray-600 dark:text-gray-400">Mon - Sat: 10:00 AM - 9:00 PM<br/>Sun: Closed / By Appointment</p>
                  </div>
                </div>
              </div>

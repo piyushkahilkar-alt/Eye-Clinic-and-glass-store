@@ -18,7 +18,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="font-sans antialiased text-gray-900 bg-white selection:bg-accent/30 selection:text-primary">
+    <div className="font-sans antialiased text-gray-900 bg-white dark:bg-gray-900 dark:text-gray-100 selection:bg-accent/30 selection:text-primary dark:selection:text-white transition-colors duration-300">
       <Navbar />
       <main>
         <Hero />

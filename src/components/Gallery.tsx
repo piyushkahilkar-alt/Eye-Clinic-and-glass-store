@@ -15,14 +15,14 @@ export default function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-bg-light">
+    <section id="gallery" className="py-24 bg-bg-light dark:bg-gray-800/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-primary font-semibold text-sm mb-6 uppercase tracking-wider">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 font-semibold text-sm mb-6 uppercase tracking-wider">
             Our Clinic
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Gallery</h2>
-          <p className="text-lg text-gray-600">Take a virtual tour of our modern facilities and premium optical store.</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">Gallery</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300">Take a virtual tour of our modern facilities and premium optical store.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">

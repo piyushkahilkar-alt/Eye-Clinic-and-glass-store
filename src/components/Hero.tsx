@@ -122,44 +122,45 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="absolute bottom-0 right-0 z-50 w-full sm:w-[360px] bg-white sm:rounded-tl-3xl p-4 sm:p-6 shadow-2xl border-t border-l border-white/50"
+        className="absolute bottom-0 right-0 z-50 w-full sm:w-[360px] bg-white dark:bg-gray-900 sm:rounded-tl-3xl p-4 sm:p-6 shadow-2xl border-t border-l border-white/50 dark:border-gray-800 transition-colors duration-300"
       >
-        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">Quick Appointment</h3>
-        <p className="text-xs md:text-sm text-gray-500 mb-3 md:mb-4">Book your visit in 30 seconds</p>
+        <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-1">Quick Appointment</h3>
+        <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-3 md:mb-4">Book your visit in 30 seconds</p>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 md:space-y-3">
           <input 
             {...register("name", { required: true })}
             placeholder="Full Name *" 
-            className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 rounded-xl text-xs md:text-sm border border-gray-100 focus:border-primary outline-none text-gray-900"
+            className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl text-xs md:text-sm border border-gray-100 dark:border-gray-700 focus:border-primary outline-none text-gray-900 dark:text-white"
           />
           <div className="flex gap-2 md:gap-3">
             <input 
               {...register("mobileNumber", { required: true })}
               placeholder="Mobile *" 
               type="tel"
-              className="w-2/3 px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 rounded-xl text-xs md:text-sm border border-gray-100 focus:border-primary outline-none text-gray-900"
+              className="w-2/3 px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl text-xs md:text-sm border border-gray-100 dark:border-gray-700 focus:border-primary outline-none text-gray-900 dark:text-white"
             />
             <input 
               {...register("age", { valueAsNumber: true, required: true })}
               placeholder="Age" 
               type="number"
-              className="w-1/3 px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 rounded-xl text-xs md:text-sm border border-gray-100 focus:border-primary outline-none text-gray-900"
+              className="w-1/3 px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl text-xs md:text-sm border border-gray-100 dark:border-gray-700 focus:border-primary outline-none text-gray-900 dark:text-white"
             />
           </div>
           <select 
             {...register("serviceRequired", { required: true })}
-            className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 rounded-xl text-xs md:text-sm border border-gray-100 focus:border-primary outline-none text-gray-900"
+            className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl text-xs md:text-sm border border-gray-100 dark:border-gray-700 focus:border-primary outline-none text-gray-900 dark:text-white"
           >
             <option value="">Select Service...</option>
             <option value="General Eye Checkup">General Eye Checkup</option>
             <option value="Cataract Consultation">Cataract Consultation</option>
             <option value="Spectacle Prescription">Spectacle Prescription</option>
+            <option value="Sunglasses / Optical Store">Sunglasses / Optical Store</option>
           </select>
           <input 
             {...register("preferredDate", { required: true })}
             type="date"
-            className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 rounded-xl text-xs md:text-sm border border-gray-100 focus:border-primary outline-none text-gray-700"
+            className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl text-xs md:text-sm border border-gray-100 dark:border-gray-700 focus:border-primary outline-none text-gray-700 dark:text-gray-300"
           />
           <button 
             type="submit" 

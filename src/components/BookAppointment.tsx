@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'motion/react';
 import { Calendar, CheckCircle2 } from 'lucide-react';
@@ -14,9 +14,17 @@ type FormData = {
 };
 
 export default function BookAppointment() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    const handleServiceSelect = (e: CustomEvent) => {
+      setValue('serviceRequired', e.detail);
+    };
+    window.addEventListener('selectService', handleServiceSelect as EventListener);
+    return () => window.removeEventListener('selectService', handleServiceSelect as EventListener);
+  }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -77,7 +85,7 @@ export default function BookAppointment() {
   };
 
   return (
-    <section id="book-appointment" className="py-24 bg-bg-light relative">
+    <section id="book-appointment" className="py-24 bg-bg-light dark:bg-gray-800/10 relative transition-colors duration-300">
       <div className="absolute top-0 left-0 right-0 h-1/2 bg-primary"></div>
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -85,18 +93,18 @@ export default function BookAppointment() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-12"
+          className="bg-white dark:bg-gray-900 rounded-[2.5rem] shadow-2xl dark:shadow-none border border-transparent dark:border-gray-800 p-8 md:p-12"
         >
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Book an Appointment</h2>
-            <p className="text-gray-600">Schedule your consultation with Dr. Sunil Fudke.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Book an Appointment</h2>
+            <p className="text-gray-600 dark:text-gray-400">Schedule your consultation with Dr. Sunil Fudke.</p>
           </div>
 
           {isSuccess ? (
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-green-50 rounded-2xl p-8 text-center"
+              className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-8 text-center"
             >
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
                 <CheckCircle2 className="w-8 h-8" />
@@ -114,32 +122,32 @@ export default function BookAppointment() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name *</label>
                   <input 
                     {...register("name", { required: "Name is required" })}
                     type="text" 
-                    className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                     placeholder="John Doe"
                   />
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Mobile Number *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Mobile Number *</label>
                   <input 
                     {...register("mobileNumber", { 
                       required: "Mobile number is required",
                       pattern: { value: /^[0-9]{10}$/, message: "Valid 10 digit number required" }
                     })}
                     type="tel" 
-                    className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                     placeholder="9876543210"
                   />
                   {errors.mobileNumber && <p className="text-red-500 text-xs mt-1">{errors.mobileNumber.message}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Age</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Age</label>
                   <input 
                     {...register("age", { 
                       valueAsNumber: true,
@@ -147,33 +155,34 @@ export default function BookAppointment() {
                       max: { value: 120, message: "Invalid age" }
                     })}
                     type="number" 
-                    className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                     placeholder="30"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Service Required *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Service Required *</label>
                   <select 
                     {...register("serviceRequired", { required: "Please select a service" })}
-                    className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                   >
                     <option value="">Select a service...</option>
                     <option value="General Eye Checkup">General Eye Checkup</option>
                     <option value="Cataract Consultation">Cataract Consultation</option>
                     <option value="Spectacle Prescription">Spectacle Prescription</option>
                     <option value="Contact Lens Fitting">Contact Lens Fitting</option>
+                    <option value="Sunglasses / Optical Store">Sunglasses / Optical Store</option>
                     <option value="Other">Other</option>
                   </select>
                   {errors.serviceRequired && <p className="text-red-500 text-xs mt-1">{errors.serviceRequired.message}</p>}
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Date *</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Preferred Date *</label>
                   <input 
                     {...register("preferredDate", { required: "Date is required" })}
                     type="date" 
-                    className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                   />
                   {errors.preferredDate && <p className="text-red-500 text-xs mt-1">{errors.preferredDate.message}</p>}
                 </div>
